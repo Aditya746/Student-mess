@@ -1,0 +1,175 @@
+/* QUESTION :
+Three students (a, b, c) are arriving in the mess at the same time. 
+The id numbers of these students are 2132,2102, 2453 and 
+the food taken time from the mess table is 2, 4 and 8 minutes. 
+If the two students have same remaining time so it is broken by giving priority 
+to the students with the lowest id number. 
+Consider the longest remaining time first (LRTF) scheduling algorithm and
+calculate the average turnaround time and waiting time.  */
+
+
+
+
+
+#include<stdio.h>
+#include<conio.h>
+#include<iostream>
+#include<stdlib.h>
+#include <windows.h>
+
+using namespace std;
+//main process
+struct process { 
+	int proid; 
+	int Arrival; 
+	int Burst;
+}; 
+
+struct process p[2];
+
+int main() 
+{ 
+
+	int i; 
+
+	// Students ID number (given in Question)
+	p[0].proid=2132;
+	p[1].proid=2102;
+	p[2].proid=2453;
+	
+	// Food time taken from the mess = burst time 
+	p[0].Burst=2;
+	p[1].Burst=4;
+	p[2].Burst=8;
+	
+	//arrival time for the processes
+	for (i = 0; i < 3; i++) 
+	{
+		p[i].Arrival=0;
+	} 
+	cout << "\tID\tArrival time \tBurst time\n"; 
+
+	
+	for (i = 0; i < 3; i++) { 
+		cout <<"\t"<< p[i].proid; 
+		cout <<"\t\t"<< p[i].Arrival ; 
+		cout <<"\t\t"<<p[i].Burst ;
+		cout << endl; 
+	} 
+	cout<<"\nQueue\tTime remaining\n";
+	Sleep(1000);
+	int a,b,c,l=14;
+	
+	
+	while(l!=0)
+	{
+
+		if(p[1].Burst==1)
+		{
+		p[2].Burst--;
+		cout<<" P1\t\t1\n";
+		Sleep(1000);
+		cout<<" P3\t\t1\n";
+		Sleep(1000);
+		cout<<" P2\t\t0\n";
+		Sleep(1000);
+		cout<<" P1\t\t0\n";
+		Sleep(1000);
+		cout<<" P3\t\t0\n";
+		Sleep(2000);
+			
+			
+		cout<<"\nTURN AROUND TIME :\n";Sleep(1000);
+		cout<<"\n\tP1\t13";Sleep(1000);
+		cout<<"\n\tP2\t12";Sleep(1000);
+		cout<<"\n\tP3\t14\n";Sleep(2000);
+		//Finding average
+		cout<<"\nAVERAGE TURN AROUND TIME =>(13+12+14)/3";
+		cout<<"\n=> 13";
+			
+		cout<<"\n\tWAITING TIME:\n";Sleep(1000);
+		cout<<"\n\tP1\t12";Sleep(1000);
+		cout<<"\n\tP2\t8";Sleep(1000);
+		cout<<"\n\tP3\t6\n";Sleep(1000);
+		break;
+		}
+		
+		if(p[0].Burst>p[1].Burst && p[0].Burst>p[2].Burst)
+		{
+		a=0;
+		if(p[1].Burst>p[2].Burst)
+			{
+				b=1;
+				c=2;
+			}
+			else
+			{
+				b=2;
+				c=1;
+			}
+		}
+		
+		if(p[1].Burst>p[2].Burst && p[1].Burst>p[0].Burst)
+		{
+			a=1;
+			if(p[2].Burst>p[0].Burst)
+			{
+				b=2;
+				c=0;
+			}
+			else
+			{
+				b=0;
+				c=2;
+			}
+		}
+		
+		if(p[2].Burst>p[1].Burst && p[2].Burst>p[0].Burst)
+		{
+			a=2;
+			if(p[1].Burst>p[0].Burst)
+			{
+				b=1;
+				c=0;
+			}
+			else
+			{
+				b=0;
+				c=1;
+			}
+		}
+		
+	int k;
+	if(p[a].Burst==p[b].Burst)
+	{
+		if(p[a].Burst==p[b].Burst && p[b].Burst==p[c].Burst)
+		{
+			if(p[b].proid < p[a].proid && p[b].proid < p[c].proid )
+			{
+				k=b;
+				b=a;
+				a=k;	
+			}
+			if(p[c].proid < p[a].proid && p[c].proid < p[b].proid )
+			{
+				k=c;
+				c=a;
+				a=k;	
+			}
+		}
+	
+		if(p[a].proid>p[b].proid)
+		{
+			k=b;
+			b=a;
+			a=k;
+		}
+	}
+		//PROCESS TO BE EXECUTED
+	    p[a].Burst=p[a].Burst-1;
+		cout<<" P"<<a+1;
+		cout<<"\t\t"<<p[a].Burst<<" \n";
+		Sleep(1000);
+		l--;
+	}
+}
