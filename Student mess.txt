@@ -66,77 +66,77 @@ int main()
 
 		if(p[1].Burst==1)
 		{
-		p[2].Burst--;
-		cout<<" P1\t\t1\n";
-		Sleep(1000);
-		cout<<" P3\t\t1\n";
-		Sleep(1000);
-		cout<<" P2\t\t0\n";
-		Sleep(1000);
-		cout<<" P1\t\t0\n";
-		Sleep(1000);
-		cout<<" P3\t\t0\n";
-		Sleep(2000);
+			p[2].Burst--;
+			cout<<" P1\t\t1\n";
+			Sleep(1000);
+			cout<<" P3\t\t1\n";
+			Sleep(1000);
+			cout<<" P2\t\t0\n";
+			Sleep(1000);
+			cout<<" P1\t\t0\n";
+			Sleep(1000);
+			cout<<" P3\t\t0\n";
+			Sleep(2000);
 			
 			
-		cout<<"\nTURN AROUND TIME :\n";Sleep(1000);
-		cout<<"\n\tP1\t13";Sleep(1000);
-		cout<<"\n\tP2\t12";Sleep(1000);
-		cout<<"\n\tP3\t14\n";Sleep(2000);
-		//Finding average
-		cout<<"\nAVERAGE TURN AROUND TIME =>(13+12+14)/3";
-		cout<<"\n=> 13";
+			cout<<"\nTURN AROUND TIME :\n";Sleep(1000);
+			cout<<"\n\tP1\t13";Sleep(1000);
+			cout<<"\n\tP2\t12";Sleep(1000);
+			cout<<"\n\tP3\t14\n";Sleep(2000);
+			//Finding average
+			cout<<"\nAVERAGE TURN AROUND TIME =>(13+12+14)/3";
+			cout<<"\n=> 13";
 			
-		cout<<"\n\tWAITING TIME:\n";Sleep(1000);
-		cout<<"\n\tP1\t12";Sleep(1000);
-		cout<<"\n\tP2\t8";Sleep(1000);
-		cout<<"\n\tP3\t6\n";Sleep(1000);
-		break;
+			cout<<"\n\tWAITING TIME:\n";Sleep(1000);
+			cout<<"\n\tP1\t12";Sleep(1000);
+			cout<<"\n\tP2\t8";Sleep(1000);
+			cout<<"\n\tP3\t6\n";Sleep(1000);
+			break;
 		}
 		
 		if(p[0].Burst>p[1].Burst && p[0].Burst>p[2].Burst)
 		{
 		a=0;
 		if(p[1].Burst>p[2].Burst)
-			{
-				b=1;
-				c=2;
-			}
-			else
-			{
-				b=2;
-				c=1;
-			}
+		{
+		b=1;
+		c=2;
+		}
+		else
+		{
+		b=2;
+		c=1;
+		}
 		}
 		
 		if(p[1].Burst>p[2].Burst && p[1].Burst>p[0].Burst)
 		{
-			a=1;
-			if(p[2].Burst>p[0].Burst)
-			{
-				b=2;
-				c=0;
-			}
+		a=1;
+		if(p[2].Burst>p[0].Burst)
+		{
+			b=2;
+			c=0;
+		}
 			else
-			{
-				b=0;
-				c=2;
-			}
+		{
+			b=0;
+			c=2;
+		}
 		}
 		
 		if(p[2].Burst>p[1].Burst && p[2].Burst>p[0].Burst)
 		{
-			a=2;
-			if(p[1].Burst>p[0].Burst)
-			{
-				b=1;
-				c=0;
-			}
+		a=2;
+		if(p[1].Burst>p[0].Burst)
+		{
+			b=1;
+			c=0;
+		}
 			else
-			{
-				b=0;
-				c=1;
-			}
+		{
+			b=0;
+			c=1;
+		}
 		}
 		
 	int k;
@@ -144,17 +144,17 @@ int main()
 	{
 		if(p[a].Burst==p[b].Burst && p[b].Burst==p[c].Burst)
 		{
-			if(p[b].proid < p[a].proid && p[b].proid < p[c].proid )
-			{
-				k=b;
-				b=a;
-				a=k;	
-			}
-			if(p[c].proid < p[a].proid && p[c].proid < p[b].proid )
-			{
-				k=c;
-				c=a;
-				a=k;	
+		if(p[b].proid < p[a].proid && p[b].proid < p[c].proid )
+		{
+			k=b;
+			b=a;
+			a=k;	
+		}
+		if(p[c].proid < p[a].proid && p[c].proid < p[b].proid )
+		{
+			k=c;
+			c=a;
+			a=k;	
 			}
 		}
 	
